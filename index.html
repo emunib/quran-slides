@@ -28,7 +28,6 @@
             integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
             crossorigin="anonymous"></script>
 </head>
-
 <body>
 
 <div class="wrapper">
@@ -45,10 +44,12 @@
 
     <!-- Page Content  -->
     <div id="content">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
-            <i class="fas fa-align-left"></i>
-            <span>Toggle Sidebar</span>
-        </button>
+        <div id="sidebarButtonGroup" class="btn-group btn-group-lg">
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button type="button" id="hiddenButton" class="btn"></button>
+        </div>
     </div>
 </div>
 
