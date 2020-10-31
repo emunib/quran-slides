@@ -39,22 +39,40 @@
 <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-        <div id="dismiss">
-            <i class="fas fa-arrow-left"></i>
+
+        <select id="chapter-select" class="selectpicker form-control mt-0 mb-2" data-mobile="true">
+            <option value="C1" selected>Chapter 3</option>
+        </select>
+
+        <label for="from-verse-select">From</label>
+        <select id="from-verse-select" class="selectpicker form-control mt-0 mb-2" data-mobile="true">
+            <option value="V1">Verse 1</option>
+        </select>
+
+        <label for="to-verse-select">To</label>
+        <select id="to-verse-select" class="selectpicker form-control mt-0 mb-2" data-mobile="true">
+            <option value="V1">Verse 1</option>
+        </select>
+
+        <div>
+            <button id="go-button" type="button" class="btn btn-primary btn-block mt-2 mb-0">Go</button>
         </div>
 
-        <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
-        </div>
+        <hr class="border-secondary mx-2"/>
+
+        <select id="goto-verse-select" class="selectpicker form-control mt-0 mb-0" title="Go to verse"
+                data-mobile="true">
+            <option value="V1">Verse 1</option>
+        </select>
     </nav>
 
     <!-- Page Content  -->
     <div id="content">
-        <div id="sidebarButtonGroup" class="btn-group btn-group-lg">
-            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+        <div id="sidebar-button-group" class="btn-group btn-group-lg">
+            <button type="button" id="sidebar-open-button" class="btn btn-dark">
                 <i class="fas fa-bars"></i>
             </button>
-            <button type="button" id="hiddenButton" class="btn"></button>
+            <button type="button" id="hidden-button" class="btn"></button>
         </div>
     </div>
 </div>
