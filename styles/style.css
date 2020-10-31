@@ -54,7 +54,7 @@ label {
 
 #sidebar-button-group {
     position: absolute;
-    top: 10%;
+    top: 30%;
     right: 0;
 }
 
@@ -94,7 +94,7 @@ label {
     margin: 0;
     height: 10vh;
     min-height: 10vh;
-    background-image: url("../images/Tile.png");
+    background-image: url(../images/Tile.png);
     background-size: auto 100%;
     image-rendering: high-quality;
     background-position-x: center;
