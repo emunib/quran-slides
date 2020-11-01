@@ -14,5 +14,6 @@
     <orderEntry type="library" name="malihu-custom-scrollbar-plugin" level="application" />
     <orderEntry type="library" name="bootstrap-select" level="application" />
     <orderEntry type="library" name="jquery.scrollto" level="application" />
+    <orderEntry type="library" name="simplebar" level="application" />
   </component>
 </module>
