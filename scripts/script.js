@@ -20,6 +20,9 @@ function closeSidebar() {
 }
 
 $(document).ready(function () {
+    let sbOpenButton = $('#sidebar-open-button');
+    let fsButton = $('#fullscreen-button');
+
     let imgWrapper = $('#scrolling-wrapper')
     let chapterSelect = $('#chapter-select')
     let fromSelect = $('#from-verse-select')
@@ -27,11 +30,21 @@ $(document).ready(function () {
     let gotoSelect = $('#goto-verse-select')
     let goButton = $('#go-button')
 
+    fsButton.on('click', function () {
+        if ($.fullscreen.isFullScreen()) {
+            $.fullscreen.exit();
+            fsButton.find('.material-icons')[0].innerHTML = "fullscreen"
+        } else {
+            $('html').fullscreen()
+            fsButton.find('.material-icons')[0].innerHTML = "fullscreen_exit"
+        }
+    })
+
     $('#sidebar-close-button, #go-button, .overlay').on('click', function () {
         closeSidebar()
     });
 
-    $('#sidebar-open-button').on('click', function () {
+    sbOpenButton.on('click', function () {
         $('#sidebar').addClass('active');
         $('.overlay').addClass('active');
         $('.collapse.in').toggleClass('in');

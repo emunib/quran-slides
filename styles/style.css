@@ -10,7 +10,7 @@ body {
     width: 250px;
     position: fixed;
     top: 0;
-    right: -250px;
+    left: -250px;
     height: 100vh;
     z-index: 999;
     padding: 15px;
@@ -22,7 +22,7 @@ body {
 }
 
 #sidebar.active {
-    right: 0;
+    left: 0;
 }
 
 .overlay {
@@ -54,12 +54,30 @@ label {
 
 #sidebar-button-group {
     position: fixed;
-    top: 1.5%;
+    height: 10%;
+    top: 0;
+    left: 0;
+}
+
+#fullscreen-button-group {
+    position: fixed;
+    height: 10%;
+    top: 0;
     right: 0;
 }
 
-#hidden-button {
+.hidden-button {
     display: none;
+}
+
+#sidebar-open-button {
+    padding: 0;
+    height: 100%;
+}
+
+#fullscreen-button {
+    padding: 0;
+    height: 100%;
 }
 
 /* ---------------------------------------------------
