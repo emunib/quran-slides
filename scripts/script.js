@@ -1,6 +1,6 @@
 let imgPath = "images/"
 let imgType = ".png"
-let r = [0, 97]
+let r = [0, 113]
 
 
 function scrollToRightOf(target, duration = 1000) {
