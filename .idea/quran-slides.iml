@@ -15,5 +15,6 @@
     <orderEntry type="library" name="bootstrap-select" level="application" />
     <orderEntry type="library" name="jquery.scrollto" level="application" />
     <orderEntry type="library" name="simplebar" level="application" />
+    <orderEntry type="library" name="jquery.fullscreen" level="application" />
   </component>
 </module>
