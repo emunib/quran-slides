@@ -116,7 +116,18 @@ $(document).ready(function () {
 
     chapterSelect.trigger('change')
     goButton.trigger('click')
+
+
+// Run the following when the window is resized, and also trigger it once to begin with.
+    $(window).resize(function () {
+        // Get the current height of the div and save it as a variable.
+        var height = sbOpenButton.height()
+        // Set the font-size and line-height of the text within the div according to the current height.
+        sbOpenButton.find('.material-icons')[0].style.fontSize = (height / 2) + "px"
+        fsButton.find('.material-icons')[0].style.fontSize = (height / 2) + "px"
+        sbOpenButton.find('.material-icons')[0].style.lineHeight = height + "px"
+        fsButton.find('.material-icons')[0].style.lineHeight = height + "px"
+        sbOpenButton[0].style.width = height + "px"
+        fsButton[0].style.width = height + "px"
+    }).trigger('resize')
 });
-
-
-
