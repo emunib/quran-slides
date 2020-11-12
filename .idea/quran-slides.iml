@@ -16,5 +16,6 @@
     <orderEntry type="library" name="jquery.scrollto" level="application" />
     <orderEntry type="library" name="simplebar" level="application" />
     <orderEntry type="library" name="jquery.fullscreen" level="application" />
+    <orderEntry type="library" name="imagesloaded" level="application" />
   </component>
 </module>
