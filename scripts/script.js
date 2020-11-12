@@ -10,6 +10,12 @@ function scrollToRightOf(target, duration = 1000) {
     });
 }
 
+function scrollLeft(target, duration = 1000) {
+    $('#scrolling-wrapper').scrollTo(target, duration, {
+        offset: {top: 0, left: -$(window).width()}
+    });
+}
+
 function makeVerseOption(i) {
     return new Option('Verse ' + i, 'V' + i)
 }
@@ -132,4 +138,23 @@ $(document).ready(function () {
         sbOpenButton[0].style.width = height + "px"
         fsButton[0].style.width = height + "px"
     }).trigger('resize')
+
+
+    $(document).on("keypress", function (e) {
+        var pos = $("img").map(function () {
+            var $this = $(this);
+            return {
+                el: $this,
+                os: $this.offset().left
+            };
+        }).get();
+        console.log(pos)
+
+        var left = pos.filter(e => e.os < 0).sort((a, b) => b.os - a.os)[0]
+        var right = pos.filter(e => e.os > 0).sort((a, b) => a.os - b.os)[0]
+        scrollLeft(Math.round(right.os) < $(window).width() ? right.el : left.el)
+
+        console.log("left: " + left.os + ", right: " + right.os)
+        // }
+    });
 });
