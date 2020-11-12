@@ -14,11 +14,6 @@ function makeVerseOption(i) {
     return new Option('Verse ' + i, 'V' + i)
 }
 
-function closeSidebar() {
-    $('#sidebar').removeClass('active');
-    $('.overlay').removeClass('active');
-}
-
 $(document).ready(function () {
     let sbOpenButton = $('#sidebar-open-button');
     let fsButton = $('#fullscreen-button');
@@ -30,6 +25,12 @@ $(document).ready(function () {
     let gotoSelect = $('#goto-verse-select')
     let goButton = $('#go-button')
 
+    function closeSidebar() {
+        $('#sidebar').removeClass('active');
+        $('.overlay').removeClass('active');
+        imgWrapper.focus()
+    }
+
     fsButton.on('click', function () {
         if ($.fullscreen.isFullScreen()) {
             $.fullscreen.exit();
@@ -38,6 +39,7 @@ $(document).ready(function () {
             $('html').fullscreen()
             fsButton.find('.material-icons')[0].innerHTML = "fullscreen_exit"
         }
+        imgWrapper.focus()
     })
 
     $('#sidebar-close-button, #go-button, .overlay').on('click', function () {
