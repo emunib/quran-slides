@@ -69,10 +69,6 @@ $(document).ready(function () {
         closeSidebar()
     });
 
-    $('#sidebar-close-button, #go-button, .overlay, .custom-btn').on('click', function () {
-        imgWrapper.focus()
-    })
-
     sbOpenButton.on('click', function () {
         $('#sidebar').addClass('active');
         $('.overlay').addClass('active');
@@ -149,7 +145,7 @@ $(document).ready(function () {
     goButton.trigger('click')
 
 
-// Run the following when the window is resized, and also trigger it once to begin with
+    // Run the following when the window is resized, and also trigger it once to begin with
     $(window).resize(function () {
         // Get the buttons
         let buttons = $('.custom-btn')
@@ -185,5 +181,9 @@ $(document).ready(function () {
                 scrollPrev(pos.left.el)
             }
         }
+    })
+
+    $('.custom-btn').on('mouseup', function () {
+        $(this).blur()
     })
 });
