@@ -126,17 +126,26 @@ $(document).ready(function () {
     goButton.trigger('click')
 
 
-// Run the following when the window is resized, and also trigger it once to begin with.
+// Run the following when the window is resized, and also trigger it once to begin with
     $(window).resize(function () {
-        // Get the current height of the div and save it as a variable.
-        var height = sbOpenButton.height()
-        // Set the font-size and line-height of the text within the div according to the current height.
-        sbOpenButton.find('.material-icons')[0].style.fontSize = (height / 2) + "px"
-        fsButton.find('.material-icons')[0].style.fontSize = (height / 2) + "px"
-        sbOpenButton.find('.material-icons')[0].style.lineHeight = height + "px"
-        fsButton.find('.material-icons')[0].style.lineHeight = height + "px"
-        sbOpenButton[0].style.width = height + "px"
-        fsButton[0].style.width = height + "px"
+        // Get the buttons
+        let buttons = $('.custom-btn')
+
+        // Get the current height of the button, assuming they are all the same height
+        let height = buttons.height()
+
+        // Get the icons
+        buttons = buttons.find('.material-icons')
+
+        buttons.each((i) => {
+            // Current button
+            let btn = buttons[i]
+
+            // Set the font-size and line-height of the text within the button according to the current height
+            btn.style.fontSize = (height / 2) + "px"
+            btn.style.lineHeight = height + "px"
+            btn.style.width = height + "px"
+        })
     }).trigger('resize')
 
 

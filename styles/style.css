@@ -52,40 +52,45 @@ label {
     color: #212529;
 }
 
-#sidebar-open-button {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    background-color: #1C668E;
-    border-color: #1C668E;
-    color: #F6DF82;
-    position: relative;
-    top: 15%;
-    left: 0;
-    padding: 0;
-    height: 70%;
-}
+/* ---------------------------------------------------
+    BUTTONS STYLE
+----------------------------------------------------- */
 
-#sidebar-open-button:hover {
-    background-color: #112333;
-    border-color: #112333;
+#sidebar-open-button {
+
 }
 
 #fullscreen-button {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    margin-left: auto;
+}
+
+.custom-btn {
     background-color: #1C668E;
     border-color: #1C668E;
     color: #F6DF82;
     position: relative;
     top: 15%;
-    margin-left: auto;
     padding: 0;
     height: 70%;
 }
 
-#fullscreen-button:hover {
+.custom-btn:hover {
     background-color: #112333;
     border-color: #112333;
+}
+
+.right-btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-left: auto;
+}
+
+.left-btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    left: 0;
 }
 
 /* ---------------------------------------------------
