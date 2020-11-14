@@ -120,6 +120,11 @@ label {
     min-height: 10px;
 }
 
+.separator {
+    height: 100%;
+    width: 0;
+}
+
 .tiles {
     padding: 0;
     margin: 0;

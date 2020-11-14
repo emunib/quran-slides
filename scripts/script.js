@@ -10,14 +10,33 @@ function scrollToRightOf(target, duration = 1000) {
     });
 }
 
-function scrollLeft(target, duration = 1000) {
+function scrollPrev(target, duration = 1000) {
     $('#scrolling-wrapper').scrollTo(target, duration, {
         offset: {top: 0, left: -$(window).width()}
-    });
+    })
+}
+
+function scrollNext(target, duration = 1000) {
+    $('#scrolling-wrapper').scrollTo(target, duration)
 }
 
 function makeVerseOption(i) {
     return new Option('Verse ' + i, 'V' + i)
+}
+
+function getSepPos() {
+    let pos = $(".separator").map(function () {
+        let $this = $(this);
+        return {
+            el: $this,
+            os: $this.offset().left
+        };
+    }).get();
+
+    return {
+        left: pos.filter(el => Math.round(el.os) < 0).sort((a, b) => b.os - a.os)[0],
+        right: pos.filter(el => Math.round(el.os) > 0).sort((a, b) => a.os - b.os)[0]
+    }
 }
 
 $(document).ready(function () {
@@ -34,7 +53,6 @@ $(document).ready(function () {
     function closeSidebar() {
         $('#sidebar').removeClass('active');
         $('.overlay').removeClass('active');
-        imgWrapper.focus()
     }
 
     fsButton.on('click', function () {
@@ -45,12 +63,15 @@ $(document).ready(function () {
             $('html').fullscreen()
             fsButton.find('.material-icons')[0].innerHTML = "fullscreen_exit"
         }
-        imgWrapper.focus()
     })
 
     $('#sidebar-close-button, #go-button, .overlay').on('click', function () {
         closeSidebar()
     });
+
+    $('#sidebar-close-button, #go-button, .overlay, .custom-btn').on('click', function () {
+        imgWrapper.focus()
+    })
 
     sbOpenButton.on('click', function () {
         $('#sidebar').addClass('active');
@@ -103,8 +124,10 @@ $(document).ready(function () {
         for (let i = from; i <= to; i++) {
             let id = 'V' + i
             imgWrapper.prepend($('<img>').attr('id', id).attr('src', imgPath + chapter + id + imgType))
+            imgWrapper.prepend($('<span>').attr('class', 'separator'))
             gotoSelect.append(makeVerseOption(i))
         }
+        imgWrapper.append($('<span>').attr('class', 'separator'))
 
         imgWrapper.imagesLoaded().done(function () {
             scrollToRightOf('#V' + from, 0)
@@ -148,22 +171,19 @@ $(document).ready(function () {
         })
     }).trigger('resize')
 
+    $('#next-button').on('click', function () {
+        scrollNext(getSepPos().right.el)
+    })
 
-    $(document).on("keypress", function (e) {
-        var pos = $("img").map(function () {
-            var $this = $(this);
-            return {
-                el: $this,
-                os: $this.offset().left
-            };
-        }).get();
-        console.log(pos)
+    $('#prev-button').on('click', function () {
+        let pos = getSepPos()
 
-        var left = pos.filter(e => e.os < 0).sort((a, b) => b.os - a.os)[0]
-        var right = pos.filter(e => e.os > 0).sort((a, b) => a.os - b.os)[0]
-        scrollLeft(Math.round(right.os) < $(window).width() ? right.el : left.el)
-
-        console.log("left: " + left.os + ", right: " + right.os)
-        // }
-    });
+        if (typeof pos.left !== "undefined") {
+            if (Math.ceil(pos.right.os) < $(window).width()) {
+                scrollPrev(pos.right.el)
+            } else {
+                scrollPrev(pos.left.el)
+            }
+        }
+    })
 });
