@@ -56,16 +56,6 @@ label {
     BUTTONS STYLE
 ----------------------------------------------------- */
 
-#sidebar-open-button {
-
-}
-
-#fullscreen-button {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    margin-left: auto;
-}
-
 .custom-btn {
     background-color: #1C668E;
     border-color: #1C668E;
@@ -101,6 +91,7 @@ label {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    max-height: 100vh;
     transition: all 0.3s;
 }
 
