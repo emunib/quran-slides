@@ -88,20 +88,17 @@ label {
 ----------------------------------------------------- */
 
 #content {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    max-height: 100vh;
     transition: all 0.3s;
 }
 
 #scrolling-wrapper {
-    margin: 0;
+    margin: 10vh 0 10vh 0;
     padding: 0;
     overflow-x: auto;
     white-space: nowrap;
     text-align: right;
-    flex-grow: 1;
+    height: 80vh;
+    max-height: 80vh;
     min-height: 100px;
 }
 
@@ -116,7 +113,14 @@ label {
     width: 0;
 }
 
+/* ---------------------------------------------------
+    TILES STYLE
+----------------------------------------------------- */
+
 .tiles {
+    position: fixed;
+    left: 0;
+    right: 0;
     padding: 0;
     margin: 0;
     height: 10vh;
@@ -125,4 +129,12 @@ label {
     background-size: auto 100%;
     image-rendering: high-quality;
     background-position-x: center;
+}
+
+.tiles-top {
+    top: 0;
+}
+
+.tiles-bottom {
+    bottom: 0;
 }
