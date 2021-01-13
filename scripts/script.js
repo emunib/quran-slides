@@ -1,7 +1,24 @@
 let imgPath = "images/"
 let imgType = ".png"
 let r = [0, 113]
-
+let idx = {
+    'C2V4': {
+        'codes': ['10001', '10002', '10003', '10004'],
+        'pos': [82.1, 62.1, 32.4, 11.8]
+    },
+    'C2V5': {
+        'codes': ['10001', '10005', '10005', '10006'],
+        'pos': [86.1, 71.1, 44.8, 10.2]
+    },
+    'C2V7': {
+        'codes': ['10007', '10008', '10009', '10001'],
+        'pos': [82.2, 50.2, 28.5, 12.1]
+    },
+    'C2V8': {
+        'codes': ['10010'],
+        'pos': [90.6]
+    }
+}
 
 function scrollToRightOf(target, duration = 1000) {
     $('#scrolling-wrapper').scrollTo(target, duration, {
@@ -36,6 +53,27 @@ function getSepPos() {
     return {
         left: pos.filter(el => Math.round(el.os) < 0).sort((a, b) => b.os - a.os)[0],
         right: pos.filter(el => Math.round(el.os) > 0).sort((a, b) => a.os - b.os)[0]
+    }
+}
+
+function closeImgs() {
+    $('.timg').remove()
+    $('#cover').remove()
+}
+
+function toggleImg(verbid) {
+    if ($('#i' + verbid).length) {
+        closeImgs()
+    } else {
+        closeImgs()
+        $('#content').append($('<div>').attr('id', 'cover').css({
+            'position': 'fixed',
+            'top': '58.5vh',
+            'width': '100%',
+            'height': '100%',
+            'background-color': 'white'
+        }))
+        $('#content').append($('<img>').attr('class', 'timg').attr('id', "i" + verbid).attr('src', imgPath + verbid + imgType))
     }
 }
 
@@ -119,7 +157,25 @@ $(document).ready(function () {
 
         for (let i = from; i <= to; i++) {
             let id = 'V' + i
-            imgWrapper.prepend($('<img>').attr('id', id).attr('src', imgPath + chapter + id + imgType))
+            let d = $('<div>').attr('class', 'test').append($('<img>').attr('id', id).attr('src', imgPath + chapter + id + imgType))
+
+            let idxkey = chapter + id
+
+            if (idxkey in idx) {
+                let codes = idx[idxkey].codes
+                let pos = idx[idxkey].pos
+
+                for (let j = 0; j < codes.length; j++) {
+                    let b = $('<button>?</button>').attr('class', 'tbtn btn btn-primary btn-circle btn-sm').attr('id', codes[j]).css('left', 'calc(' + pos[j] + '% - 15px)').css('z-index', '1000')
+                    b.on('click', function () {
+                        toggleImg($(this).attr('id'))
+                    })
+                    d.append(b)
+                }
+            }
+
+            d.append($('<button>?</button>').attr('class', 'tbtn').attr('id'))
+            imgWrapper.prepend(d)
             imgWrapper.prepend($('<span>').attr('class', 'separator'))
             gotoSelect.append(makeVerseOption(i))
         }
@@ -185,5 +241,11 @@ $(document).ready(function () {
 
     $('.custom-btn').on('mouseup', function () {
         $(this).blur()
+    })
+
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest(".tbtn").length && !$(event.target).closest(".timg").length) {
+            closeImgs()
+        }
     })
 });

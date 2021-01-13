@@ -15,6 +15,7 @@ body {
     z-index: 999;
     padding: 15px;
     background: #112333;
+
     color: #fff;
     transition: all 0.3s;
     overflow-y: auto;
@@ -96,13 +97,38 @@ label {
     padding: 0;
     display: flex;
     flex-direction: row;
-    overflow: auto;
+
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
     height: 80vh;
     max-height: 80vh;
     min-height: 100px;
 }
 
-#scrolling-wrapper > img {
+#scrolling-wrapper::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.tbtn {
+    position: absolute;
+    top: calc(60.8% - 15px);
+}
+
+.timg {
+    position: fixed;
+    bottom: 10vh;
+    width: 100%;
+    max-width: 1700px;
+}
+
+.test {
+    height: 80vh;
+    position: relative;
+}
+
+.test > img {
     height: 100%;
     min-height: 10px;
 }
@@ -112,11 +138,22 @@ label {
     width: 0;
 }
 
+
+.btn-circle.btn-sm {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    border-radius: 15px;
+    font-size: 8px;
+    text-align: center;
+}
+
 /* ---------------------------------------------------
     TILES STYLE
 ----------------------------------------------------- */
 
 .tiles {
+    z-index: 1000;
     position: fixed;
     left: 0;
     right: 0;
