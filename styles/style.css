@@ -138,14 +138,19 @@ label {
     width: 0;
 }
 
-
 .btn-circle.btn-sm {
     width: 30px;
     height: 30px;
     padding: 6px 0;
     border-radius: 15px;
-    font-size: 8px;
-    text-align: center;
+    background-color: #f6df82;
+}
+
+.btn-circle:hover {
+    background-color: #dbc542;
+}
+.btn-circle:active {
+    background-color: #c9b12b;
 }
 
 /* ---------------------------------------------------
@@ -153,7 +158,7 @@ label {
 ----------------------------------------------------- */
 
 .tiles {
-    z-index: 1000;
+    z-index: 900;
     position: fixed;
     left: 0;
     right: 0;
