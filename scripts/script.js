@@ -166,7 +166,7 @@ $(document).ready(function () {
                 let pos = idx[idxkey].pos
 
                 for (let j = 0; j < codes.length; j++) {
-                    let b = $('<button>').attr('class', 'tbtn btn btn-circle btn-sm').attr('id', codes[j]).css('left', 'calc(' + pos[j] + '% - 15px)').css('z-index', '950')
+                    let b = $('<button>').attr('class', 'tbtn btn btn-circle btn-sm').attr('id', codes[j]).css('left', 'calc(' + pos[j] + '% - 10px)').css('z-index', '950')
                     b.on('click', function () {
                         toggleImg($(this).attr('id'))
                     })

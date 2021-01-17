@@ -59,7 +59,7 @@ label {
 
 .custom-btn {
     background-color: #1C668E;
-    border-color: #1C668E;
+    /*border-color: #1C668E;*/
     color: #F6DF82;
     position: relative;
     top: 15%;
@@ -113,10 +113,11 @@ label {
 
 .tbtn {
     position: absolute;
-    top: calc(60.8% - 15px);
+    top: calc(60.8% - 10px);
 }
 
 .timg {
+    z-index: 960;
     position: fixed;
     bottom: 10vh;
     width: 100%;
@@ -139,18 +140,20 @@ label {
 }
 
 .btn-circle.btn-sm {
-    width: 30px;
-    height: 30px;
-    padding: 6px 0;
-    border-radius: 15px;
-    background-color: #f6df82;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #1C668E;
+    background-color: transparent;
 }
 
 .btn-circle:hover {
-    background-color: #dbc542;
+    background-color: #1C668E;
+    border-color: #1C668E;
 }
 .btn-circle:active {
-    background-color: #c9b12b;
+    background-color: #112333;
+    border-color: #112333;
 }
 
 /* ---------------------------------------------------
