@@ -17,6 +17,59 @@ let idx = {
     'C2V8': {
         'codes': ['10010'],
         'pos': [90.6]
+    },
+
+    'C2V10': {
+        'codes': ['10016', '10017', '10018', '10019'],
+        'pos': [88.31, 66.14, 47.5, 12.75]
+    },
+    'C2V11': {
+        'codes': ['10020', '10021', '10022'],
+        'pos': [69.89, 15.62, 10.58]
+    },
+    'C2V12': {
+        'codes': ['10023', '10024', '10025'],
+        'pos': [78.19, 58.4, 36.5]
+    },
+    'C2V13': {
+        'codes': ['10026'],
+        'pos': [15.62]
+    },
+    'C2V14': {
+        'codes': ['10027', '10028', '10029', '10030', '10031', '10032', '10033'],
+        'pos': [87.08, 76.48, 71.94, 58.94, 56.08, 45.32, 6.46]
+    },
+    'C2V15': {
+        'codes': ['10034', '10035', '10036', '10037', '10038', '10039'],
+        'pos': [85.44, 79.54, 69.8, 67.21, 49.59, 30.15]
+    },
+    'C2V16': {
+        'codes': ['10040', '10041', '10042'],
+        'pos': [80.12, 54.73, 17.9]
+    },
+    'C2V17': {
+        'codes': ['10043', '10044', '10045'],
+        'pos': [79.1, 48.7, 20.72]
+    },
+    'C2V18': {
+        'codes': ['10046', '10047', '10048', '10049', '10050'],
+        'pos': [69.82, 57.73, 38.93, 25.89, 7.22]
+    },
+    'C2V19': {
+        'codes': ['10051'],
+        'pos': [22.92]
+    },
+    'C2V20': {
+        'codes': ['10052'],
+        'pos': [52.85]
+    },
+    'C2V21': {
+        'codes': ['10053', '10054', '10055', '10056', '10057', '10058', '10059', '10060'],
+        'pos': [95.34, 87.97, 76.89, 70.01, 58.68, 50.14, 44.08, 34.73]
+    },
+    'C2V9': {
+        'codes': ['10014', '10015'],
+        'pos': [63.92, 49.86]
     }
 }
 
@@ -56,9 +109,12 @@ function getSepPos() {
     }
 }
 
+function toggleTransCover() {
+    $('.cover-tgl').toggleClass('d-none')
+}
+
 function closeImgs() {
-    $('.timg').remove()
-    $('#cover').remove()
+    $('.cover').addClass('d-none').empty()
 }
 
 function toggleImg(verbid) {
@@ -66,20 +122,14 @@ function toggleImg(verbid) {
         closeImgs()
     } else {
         closeImgs()
-        $('#content').append($('<div>').attr('id', 'cover').css({
-            'position': 'fixed',
-            'top': '58.5vh',
-            'width': '100%',
-            'height': '100%',
-            'background-color': 'white'
-        }))
-        $('#content').append($('<img>').attr('class', 'timg').attr('id', "i" + verbid).attr('src', imgPath + verbid + imgType))
+        $('.cover').removeClass('d-none').append($('<img>').attr('class', 'timg').attr('id', "i" + verbid).attr('src', imgPath + verbid + imgType))
     }
 }
 
 $(document).ready(function () {
     let sbOpenButton = $('#sidebar-open-button');
     let fsButton = $('#fullscreen-button');
+    let cvrButton = $('#cover-button');
 
     let imgWrapper = $('#scrolling-wrapper')
     let chapterSelect = $('#chapter-select')
@@ -157,7 +207,7 @@ $(document).ready(function () {
 
         for (let i = from; i <= to; i++) {
             let id = 'V' + i
-            let d = $('<div>').attr('class', 'test').append($('<img>').attr('id', id).attr('src', imgPath + chapter + id + imgType))
+            let d = $('<div>').attr('class', 'img-wrapper').append($('<img>').attr('id', id).attr('src', imgPath + chapter + id + imgType))
 
             let idxkey = chapter + id
 
@@ -236,6 +286,16 @@ $(document).ready(function () {
             } else {
                 scrollPrev(pos.left.el)
             }
+        }
+    })
+
+    cvrButton.on('click', function () {
+        toggleTransCover()
+
+        if ($('.cover-tgl').hasClass('d-none')) {
+            cvrButton.find('.material-icons')[0].innerHTML = 'visibility_off'
+        } else {
+            cvrButton.find('.material-icons')[0].innerHTML = 'visibility'
         }
     })
 

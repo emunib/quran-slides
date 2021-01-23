@@ -78,6 +78,10 @@ label {
     margin-left: auto;
 }
 
+.center-btn {
+    margin-left: auto;
+}
+
 .left-btn {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -118,18 +122,23 @@ label {
 
 .timg {
     z-index: 960;
-    position: fixed;
-    bottom: 10vh;
-    width: 100%;
-    max-width: 1700px;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
 }
 
-.test {
+.img-wrapper {
     height: 80vh;
     position: relative;
 }
 
-.test > img {
+.img-wrapper > img {
     height: 100%;
     min-height: 10px;
 }
@@ -151,9 +160,26 @@ label {
     background-color: #1C668E;
     border-color: #1C668E;
 }
+
 .btn-circle:active {
     background-color: #112333;
     border-color: #112333;
+}
+
+.cover-tgl {
+    position: fixed;
+    top: 58.5vh;
+    bottom: 10vh;
+    width: 100%;
+    background-color: white;
+}
+
+.cover {
+    position: fixed;
+    top: 58.5vh;
+    bottom: 10vh;
+    width: 100%;
+    background-color: white;
 }
 
 /* ---------------------------------------------------
