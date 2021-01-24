@@ -7,10 +7,10 @@ body {
 ----------------------------------------------------- */
 
 #sidebar {
-    width: 200px;
     position: fixed;
     top: 0;
-    left: -200px;
+    width: 175px;
+    left: -175px;
     height: 100vh;
     z-index: 999;
     padding: 15px;
