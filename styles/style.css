@@ -59,7 +59,7 @@ label {
 
 .custom-btn {
     background-color: #1C668E;
-    /*border-color: #1C668E;*/
+    border: none;
     color: #F6DF82;
     position: relative;
     top: 15%;
@@ -69,7 +69,7 @@ label {
 
 .custom-btn:hover {
     background-color: #112333;
-    border-color: #112333;
+    border: none;
 }
 
 .right-btn {
@@ -86,6 +86,29 @@ label {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     left: 0;
+}
+
+.tbtn {
+    position: absolute;
+    top: calc(60.8% - 10px);
+}
+
+.btn-circle.btn-sm {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #1C668E;
+    background-color: transparent;
+}
+
+.btn-circle:hover {
+    background-color: #1C668E;
+    border-color: #1C668E;
+}
+
+.btn-circle:active {
+    background-color: #112333;
+    border-color: #112333;
 }
 
 /* ---------------------------------------------------
@@ -115,11 +138,6 @@ label {
     height: 0;
 }
 
-.tbtn {
-    position: absolute;
-    top: calc(60.8% - 10px);
-}
-
 .timg {
     z-index: 960;
     width: auto;
@@ -146,24 +164,6 @@ label {
 .separator {
     height: 100%;
     width: 0;
-}
-
-.btn-circle.btn-sm {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    border: 1px solid #1C668E;
-    background-color: transparent;
-}
-
-.btn-circle:hover {
-    background-color: #1C668E;
-    border-color: #1C668E;
-}
-
-.btn-circle:active {
-    background-color: #112333;
-    border-color: #112333;
 }
 
 .cover-tgl {
